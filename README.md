@@ -3,10 +3,11 @@
 A simple application to parse and manage chat notes.
 
 ## Installation
-bash
+
+```bash
 pip install .
-
+```
 ## Usage
-bash
+```bash
 chat-notes
-
+```
