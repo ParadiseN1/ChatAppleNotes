@@ -4,10 +4,13 @@ import ollama
 from termcolor import colored
 from transformers import LlamaTokenizerFast
 
-def structure_notes(notes: list[dict]) -> str:
+def structure_notes(notes: list[dict], tokenizer: LlamaTokenizerFast) -> str:
     txt_notes = ""
     for note in reversed(notes):
         txt_notes += f"{note.modification_date}\n\n {note.body}\n"
+
+    tokens = tokenizer.encode(txt_notes)[-6800:]
+    txt_notes = tokenizer.decode(tokens)
     return txt_notes
 
 def calc_tokens(history: list[dict], tokenizer: LlamaTokenizerFast) -> int:
@@ -28,22 +31,27 @@ def main():
         )
     
     prompt = """
-    Here is my provided apple notes:
+    You are helpful assistant that helps analize my notes.
+    Here is my provided notes:
     {notes}
+    notes are provided in raw format, please make references or respond to me only in human readable format
 
-    Please help me as much as you can and do what i ask:
+
+    Here is my first message:
     {user_message}
     """
     
     history = []
     i = 0
     assistant_response = None
+    notes_txt = structure_notes(notes, tokenizer)
+
     while True:
         if assistant_response:
             history.append({'role': 'assistant', 'content': assistant_response })
         user_message = input(colored('You: ', 'blue'))
         if i == 0:
-            history.append({'role': 'user', 'content': prompt.format(notes=structure_notes(notes), user_message=user_message)})
+            history.append({'role': 'user', 'content': prompt.format(notes=notes_txt, user_message=user_message)})
         else:
             history.append({'role': 'user', 'content': user_message })
         
