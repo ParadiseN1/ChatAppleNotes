@@ -12,7 +12,7 @@ setup(
     ],
     entry_points={
         'console_scripts': [
-            'chat-notes=chat_notes.parse_notes:cli',
+            'chat-notes=src.parse_notes:cli',
         ],
     },
 )

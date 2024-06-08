@@ -5,7 +5,7 @@ A simple application to parse and manage chat notes.
 ## Installation
 
 ```bash
-pip install .
+pip install -e .
 ```
 ## Usage
 ```bash
