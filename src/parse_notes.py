@@ -75,8 +75,3 @@ def cli():
 
 if __name__ == "__main__":
     cli()
-
-#TODO:
-# 1. Integrate with llama-index to index all of the notes
-# 2. Chat in RAG mode
-# 3. Possible idea: insert as much similar Notes as possible in context to get high recall
