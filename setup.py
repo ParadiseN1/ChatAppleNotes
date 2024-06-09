@@ -9,10 +9,11 @@ setup(
         'ollama',
         'termcolor',
         'transformers',
+        'torch',
     ],
     entry_points={
         'console_scripts': [
-            'chat-notes=src.parse_notes:cli',
+            'chat-notes=src.parse_notes_local:cli',
         ],
     },
 )

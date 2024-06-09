@@ -27,7 +27,8 @@ def main():
     notesapp = NotesApp()
     notes = notesapp.notes()
     tokenizer = LlamaTokenizerFast.from_pretrained(
-            "hf-internal-testing/llama-tokenizer"
+            "hf-internal-testing/llama-tokenizer",
+            legacy=False
         )
     
     prompt = """
