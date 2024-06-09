@@ -1,4 +1,4 @@
-# chat_notes
+# ChatAppleNotes
 
 A simple application to parse and manage chat notes.
 
