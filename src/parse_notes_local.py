@@ -51,6 +51,8 @@ def main():
         if assistant_response:
             history.append({'role': 'assistant', 'content': assistant_response })
         user_message = input(colored('You: ', 'blue'))
+        if user_message in ['exit()', '/bye', '/end']:
+            break
         if i == 0:
             history.append({'role': 'user', 'content': prompt.format(notes=notes_txt, user_message=user_message)})
         else:
