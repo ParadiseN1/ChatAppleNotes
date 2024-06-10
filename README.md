@@ -1,6 +1,6 @@
 # chat_notes
 
-A simple application to parse and manage chat notes.
+A simple application to parse your local Apple Notes and chat with them using Ollama.
 
 ## Installation
 

@@ -1,4 +1,3 @@
-import argparse
 from macnotesapp import NotesApp
 import ollama
 from termcolor import colored
@@ -78,10 +77,6 @@ def main():
         i += 1
 
 def cli():
-    # parser = argparse.ArgumentParser(description="CLI for interacting with Apple Notes and Ollama.")
-    # parser.add_argument('user_message', type=str, help='Initial user message to the assistant')
-    # args = parser.parse_args()
-    # main(args.user_message)
     main()
 
 if __name__ == "__main__":
